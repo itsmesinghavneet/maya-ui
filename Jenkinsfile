@@ -123,14 +123,14 @@ https://wiki.jenkins.io/display/JENKINS/Copy+Artifact+Plugin#CopyArtifactPlugin-
             slackSend channel: '#maya-io',
                 color: 'RED',
                 message: "The pipeline ${currentBuild.fullDisplayName} failed. :scream_cat: :japanese_goblin: "
-        }*/
+        }
         unstable {
             echo 'This will run only if the run was marked as unstable'
 /*            slackSend channel: '#maya-io',
                    color: 'good',
                    message: "The pipeline ${currentBuild.fullDisplayName} is unstable :scream_cat: :japanese_goblin: "
 */
-	}
+	} */
         changed {
 /*            slackSend channel: '#maya-io',
                    color: 'good',
