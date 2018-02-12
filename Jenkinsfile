@@ -106,38 +106,5 @@ https://wiki.jenkins.io/display/JENKINS/Copy+Artifact+Plugin#CopyArtifactPlugin-
 	      }
   }
 
-  /*  post {
-        always {
-            echo 'This will always run'
-            //deleteDir()
-        }
-        success {
-            echo 'This will run only if successful'
-            slackSend channel: '#ui',
-                   color: 'good',
-                   message: "The pipeline ${currentBuild.fullDisplayName} completed successfully :dance: :thumbsup: "
-
-	      }
-        failure {
-            echo 'This will run only if failed'
-            slackSend channel: '#maya-io',
-                color: 'RED',
-                message: "The pipeline ${currentBuild.fullDisplayName} failed. :scream_cat: :japanese_goblin: "
-        }
-        unstable {
-            echo 'This will run only if the run was marked as unstable'
-/*            slackSend channel: '#maya-io',
-                   color: 'good',
-                   message: "The pipeline ${currentBuild.fullDisplayName} is unstable :scream_cat: :japanese_goblin: "
-*/
-	} 
-        changed {
-/*            slackSend channel: '#maya-io',
-                   color: 'good',
-                   message: "Build ${currentBuild.fullDisplayName} is now stable :dance: :thumbsup: "
-            echo 'This will run only if the state of the Pipeline has changed'
-*/            echo 'For example, if the Pipeline was previously failing but is now successful'
-        }
-    }
-*/
+  
 }
