@@ -1,0 +1,58 @@
+<div style="margin:5% 0;">
+   <div class="row">
+    <div class="col-md-12">
+        <div class="d-flex align-items-center" style="border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+            <div class="col-md-6">
+                <div class="card-body p-5">
+                    <div class="d-flex">
+                        <div>
+                            <p style="font-size:18px; color:#212529;">Dear <span style="font-weight:700;">{{model.account.name}},</span></p>
+                            <p style="font-size:17px;">
+                                Welcome to MayaOnline. We have created an organization called <span style="font-weight:700;">{{model.organization.name}}</span> for you. Start by creating a slack card for your organization and enjoy the MayaOnline communication from our MuleBot on your slack.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="mb-5">
+                    <img src="assets/images/slack-mayaonline.png" class="img-fluid">
+                </div>
+                {{#if showDefaultSlackCardAddButton}}
+                    <button class="btn btn-success" {{action "slackOauth"}}>Connect to your Slack workspace</button>
+                {{else}}
+                    <button class="btn btn-success"{{action "editDefaultSlackCard"}}>Edit Default Slack Card</button>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mt-4">
+        <div class="card" style="width:538px;
+    height:352px;">
+            <div class="card-body" style="margin-top:10%;">
+                <p style="font-size:17px; margin-bottom:10%;">Explore MayaOnline documentation and learn how you can manage your OpenEBS clusters.</p>
+                <div class="d-flex align-items-center justify-content-around">
+                    <div>
+                        <img src="assets/images/doc.png" height="100px" width="auto">
+                    </div>
+                    <div>
+                        <a href="https://docs.mayaonline.io" class="btn btn-warning" style="background-color:#ff9933; color:#fff;" target="_blank">Read docs.mayaonline.io</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mt-4">
+        <div class="card">
+            <div class="card-body text-center p-5">
+                <img src="assets/images/cluster/clusters.png" class="img-fluid">
+                <p style="color:#495057; font-size:18px;" class="pt-4 pb-4">{{t 'clusterDashboard.noCluster.message'}}</p>
+                <button class="btn btn-primary" {{action "importCluster"}}>
+    {{t 'clusterDashboard.noCluster.importBtnLabel'}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

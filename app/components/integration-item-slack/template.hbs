@@ -1,0 +1,71 @@
+<div style="padding: 0% 5% 5% 5%;">
+ <div class= "b-d" style="float: left;">
+   {{slack-auth}} 
+ </div>
+ {{#if slackmodel}}
+<div class="w-25 b-d" style="float: right; position: relative;">
+        <div class="search">
+  <span class="fa fa-search"></span>
+  {{input type="text" value=value key-up=(action 'handleFilterEntry') classNames="form-control" placeholder="Search"}}
+</div>
+        
+</div> 
+{{/if}}
+</div>
+<div>
+</div>
+<div class="mt-1" style="padding: 0 5%;">
+{{#if slackmodel}}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{{t 'organization.slack.generic.card' singularity=1}} {{t 'organization.generic.name'}}</th>
+      <th scope="col" data-toggle="tooltip" data-placement="right" title={{t 'organization.tooltip.tooltip4'}}>{{t 'organization.slack.generic.workspace'}}</th>
+      <th scope="col" data-toggle="tooltip" data-placement="right" title={{t 'organization.tooltip.tooltip5'}}>{{t 'organization.slack.generic.channel'}}</th>
+      <th scope="col" data-toggle="tooltip" data-placement="right" title={{t 'organization.tooltip.tooltip6'}}>{{t 'generic.cluster' singularity=0}}</th>
+      <th scope='col'></th>
+    </tr>
+  </thead>
+  {{#each filteredCard as |slackintegrations|}}
+  <tbody>
+<tr>
+      <td>{{slackintegrations.name}}</td>
+      <td>{{slackintegrations.token.teamName}}</td>
+      <td>{{slackintegrations.token.incomingWebhook.channel}}</td>
+      <td>{{slack-connections model=slackintegrations}}</td>
+      <td>
+          {{#if (eq slackintegrations.state 'removing')}}
+          <span class="badge badge-danger">Removing</span>
+          {{else}}
+          <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right" title={{t 'organization.tooltip.tooltip2'}} style="cursor:pointer;font-size: 20px; color:#0576b9" {{action 'editslackCard' slackintegrations.id}}></i>
+          <i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" data-placement="right" title={{t 'organization.tooltip.tooltip3'}} style="cursor:pointer;font-size: 20px; color:#d72b3f" {{action 'deleteslackCard' slackintegrations}}></i>
+          {{/if}}
+      </td>
+          
+</tr>
+
+
+</tbody>
+{{/each}}
+</table>
+{{/if}}
+</div>
+
+
+<style >
+  
+.search {
+  position: relative;
+  color: #aaa;
+  font-size: 16px;
+}
+.search .fa-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.search input { text-indent: 20px;}
+
+
+</style>
+

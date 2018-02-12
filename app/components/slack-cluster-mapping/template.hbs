@@ -1,0 +1,64 @@
+<style>
+.slack-img{
+display: flex;
+justify-content: center;
+margin: 5rem auto 2rem auto;
+}
+.slack-workspace-details{
+     text-align: center;
+     margin-top: 4rem;
+}
+.slack-workspace-details h1{
+    margin-bottom: 5rem;
+}
+.slack-header{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+.slack-header li{
+    width:33.33%;
+}
+.btn-slack{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
+</style>
+
+<div class="text-center mt-3">
+    <img src="assets/images/slack-logo.png" alt="slack">   
+</div>
+           
+<div class="slack-workspace-details">
+     <h1>Slack+MayaOnline</h1>
+    <ul class="slack-header">
+        <li>WorkSpace</li>
+        <li>Channel</li>
+        <li>Clusters</li>
+    </ul>
+    <ul class="slack-header">
+        <li>
+          Cloudbyte
+        </li>
+        <li>
+            #General
+        </li>
+        <li>
+           <li class="btn dropdown-toggle" role="button" id="cluster-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Select Cluster
+            </li>
+            <div class="dropdown-menu" aria-labelledby="cluster-list">  
+                <input type="checkbox" aria-label="" value="cluster1">cluster#1<br>
+                <input type="checkbox" aria-label="" value="cluster2">cluster#2<br>
+                <input type="checkbox" aria-label="" value="cluster3">cluster#3<br>
+                <input type="checkbox" aria-label="" value="cluster4">cluster#4
+                
+            </div>
+        </li>
+    </ul>    
+
+
+
+    <button class="btn btn-primary btn-slack" style="margin-top:5rem;">Done</button>
+</div>
+

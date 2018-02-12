@@ -1,0 +1,40 @@
+<!--ImportOpenEBS Dialog-->
+<div class="modal in maya-modal b-d" data-keyboard="false" data-backdrop="static" id="welcomedialog" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog maya-dialog b-d">
+        <div class="modal-content email-modal" style="border:none; width:auto;">
+            <div class="modal-body m-4 b-d email-modal">
+                <div class="container">
+                    <div class="row b-d" style="align-items: center;">
+                        <div class="col-md-4 b-d wave-mule" >
+                            <img src="assets/images/wave-mule.gif">
+                        </div>
+                        <div class="col-md-8 b-d" style="border-left:1px solid #fafafa;">
+                            <p style="color:#545454;" class="email-text">Hey {{model.name}},<br> Thanks for signing in. We are currently running MayaOnline for a small set of users. Please provide your email id below, we will enable access and notify you.</p>
+                            <div class="">
+                                <form class="b-d invite-form">
+                                    <div class="form-group pt-2 ">
+                                        {{input value=userEmail type="email" value=userEmail class="form-control" id="welcome-email" aria-describedby="user-email" placeholder="Email id" autocomplete="off"}}
+                                    </div>
+                                    <p class="text-danger" id="notify"></p>
+                                    <div class="form-group pt-2">
+                                        <button type="submit" class="btn btn-maya-new pt-2" {{action 'editAccount' model}}>Invite me</button>
+                                         
+                                         <a class="pl-3 btn-cancel btn btn-maya-new ml-3" aria-hidden="true" data-dismiss="modal" aria-label="Close" style="color:#fff;">Later</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END ImportOpenEBS Dialog-->
+<script>
+    $('#welcomedialog').modal('show');
+    $('#welcomedialog').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
+</script>

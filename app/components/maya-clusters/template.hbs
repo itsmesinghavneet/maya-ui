@@ -1,0 +1,31 @@
+<div class="pt-5 d-flex align-items-center mb-4 m-3">
+    <img src="assets/images/explore.png" alt="slack" style="height:50px;">
+    <h3 class="pl-2 mb-0" style="color:#0576b9">{{t 'generic.cluster' singularity=0}}</h3>
+</div>
+<div style="margin-bottom:5rem">
+    <div class='w-25 float-left ml-3' data-placement="right">
+            {{input type="text" value=value key-up=(action 'handleFilterEntry') classNames="form-control" placeholder="Search"}}
+    </div>
+    <div style="left:45%;position:absolute">
+        <span class='text-success'>{{activeClusterCount}}  active ,</span>
+        <span class='text-danger'>{{inactiveClusterCount}} inactive</span>
+        <span class = '{{sortclass}}' {{action 'sortParam'}}></span>
+    </div>
+</div> 
+<div class="d-flex flex-wrap">
+    {{#each sortedModel as |cluster|}}
+        {{#if (eq cluster.state 'removed')}}
+        {{else}}
+            {{maya-cluster model=cluster slackclusterassociation=slackclusterassociation slackintegration=slackintegration switchProject="switchProject" importCluster="importCluster"}}
+        {{/if}}
+{{/each}}
+<div {{action "importCluster"}} class="card m-3 justify-content-center" style="width:20rem;"> 
+     {{#link-to 'mayasecure.clusters'}} 
+         <div class="card-body text-center">
+             <div style="color:gray;" title= {{t 'clusterDashboard.hoverImportTitle' }}>
+                 <img src="assets/images/icons/add-plus.svg">
+             </div>
+         </div>
+     {{/link-to}}
+ </div>
+ </div>

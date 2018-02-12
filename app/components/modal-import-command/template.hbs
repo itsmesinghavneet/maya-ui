@@ -1,0 +1,17 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" {{action 'close'}}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title">{{model.title}}</h5>
+        <h5 class="modal-sub-title">{{model.subtitle}}</h5>
+    </div>
+    <div class="modal-body">
+        <div class="bd-clipboard">
+            {{#copy-button clipboardTarget="#commands" title='copy to clipboard' classNames='btn-clipboard btn btn-secondary btn-sm'}} {{t 'generic.copy'}}{{/copy-button}}
+        </div>
+        <div class="code-ray" style="padding-top:8%;">
+            <pre id="commands">{{model.commands}}</pre>
+        </div>
+    </div>
+</div>

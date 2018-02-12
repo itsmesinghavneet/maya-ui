@@ -1,0 +1,6 @@
+<p class="outlet_sub_title">Applications</p>
+<div class="d-flex flex-wrap">
+{{#each mayaApp as |instance|}}
+{{maya-application model=instance data=instance.data.pods grafanaUrl=grafanaUrl}} 
+{{/each}}
+</div>

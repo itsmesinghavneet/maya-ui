@@ -1,0 +1,34 @@
+<div>
+    <span class="head">{{t 'organization.member.title' singularity=0}}:</span>
+    <span><button type="button" class="btn btn-primary float-right" 
+        style="cursor:pointer;color:black;background-color: rgb(243, 243, 243); border-color: rgb(204, 204, 204); font-weight: 100;margin-left:5%" {{action 'expand'}}>{{btnLabel}}</button>
+    </span>
+    <p>{{t 'organization.member.header.header1'}}</p> 
+</div>
+
+<div id='expand-member' style="display: none;">
+    <div class="mt-4" style="padding: 0 5%;">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{{t 'organization.member.title' singularity=1}}</th>
+      <th scope="col">{{t 'organization.member.generic.id'}}</th>
+      <th scope="col">{{t 'organization.member.generic.role'}}</th>
+      <th scope="col">{{t 'organization.member.generic.joined'}}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model.identities as |profile|}}
+  {{#if (eq profile.externalIdType "github_user")}}  
+    <tr>
+        <td><span><img src="{{profile.profilePicture}}" alt="{{profile.name}}" class="avatar-sm"></span>{{profile.name}}({{t 'organization.member.generic.you'}})</td>
+      <td>{{profile.login}}</td>
+      <td>{{t 'organization.member.generic.admin'}}</td>
+      <td>{{date-from-now model.currentOrganization.created}}</td>
+    </tr>
+    {{/if}}
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</div>

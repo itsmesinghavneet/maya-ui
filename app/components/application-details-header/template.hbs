@@ -1,0 +1,21 @@
+<div class="row b-d" style="align-items:center;">
+    <div class="col-md-1">
+        <div class="app-{{model.name}} b-d" style="height:50px;"></div>
+    </div>
+    <div class="col-md-11 b-d">
+        <div class="d-flex">
+            <div class="b-d">
+                <span><h4>{{model.name}}</h4></span>
+                   <ul class="list-inline">
+                    <li class="list-inline-item mr-4" >
+                        <p style="text-transform: capitalize;"><i class="mi circle-active"></i> {{model.state}}</p>
+                    </li>
+                    <li class="list-inline-item"> <span class="badge badge-secondary b-d ">{{noOfPods}}</span> Pods
+                    </li>
+                    <li class="list-inline-item"> <span class="badge badge-secondary b-d ">{{noOfVol}}</span> Volumes
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

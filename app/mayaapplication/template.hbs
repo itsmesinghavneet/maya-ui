@@ -1,0 +1,14 @@
+<div style="margin-top:4%;">
+{{application-details-header model=model}}
+</div>
+    <h5 class="mb-4">Volumes</h5>
+    <div class="row">
+		{{#each model.data.pods as |pod|}}
+            {{#each pod.volumes as |vol|}}
+				{{maya-volume model=vol volumename=volumename showvolumes=showvolumes changeVolume="changeVolume"}}
+		{{/each}}
+	{{/each}}
+    </div>
+{{#if showvolumes}}
+	{{maya-volume-details-section model=model volumename=volumename stateChange="stateChange"}}
+{{/if}}

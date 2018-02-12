@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width" name="viewport" id="viewport">
+    <link rel="icon" href="{{content-for 'baseAssets'}}assets/images/logos/favicon.ico">
+    <!-- {{content-for 'version'}} -->
+    <meta name="description" content="Self management of storage for DevOps, with the help of software."> {{content-for 'head'}}
+    <link id="vendor" rel="stylesheet" href="{{content-for 'baseAssets'}}assets/vendor.css">
+    <link id="theme" rel="stylesheet"> {{content-for 'head-footer'}}
+</head>
+<body>
+    {{content-for 'body'}}
+    <script src="{{content-for 'baseAssets'}}assets/vendor.js"></script>
+    <script src="{{content-for 'baseAssets'}}assets/ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="{{rootURL}}assets/js/bootstrap.min.js"></script>
+    {{content-for 'body-footer'}}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92076314-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-92076314-4');
+    </script>
+    <!--hotjar-->
+    <script>
+        (function(h, o, t, j, a, r) {
+            h.hj = h.hj || function() {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+            h._hjSettings = {
+                hjid: 772276,
+                hjsv: 6
+            };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script');
+            r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+</body>
+</html>

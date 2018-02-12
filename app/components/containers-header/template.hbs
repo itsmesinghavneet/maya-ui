@@ -1,0 +1,64 @@
+<section class="header has-tabs clearfix">
+  <ul class="tab-nav">
+    <li>{{#link-to "containers.index" projects.current.id}}{{t 'nav.containers.containers'}}{{/link-to}}</li>
+    <li>{{#link-to "balancers.index" projects.current.id}}{{t 'nav.containers.balancers'}}{{/link-to}}</li>
+    <li>{{#link-to "dns.index" projects.current.id}}{{t 'nav.containers.dns'}}{{/link-to}}</li>
+    <li>{{#link-to "volumes.index" projects.current.id}}{{t 'nav.containers.volumes'}}{{/link-to}}</li>
+    {{#if projects.current.isKubernetes}}
+      <li>{{#link-to "k8s" projects.current.id}}{{t 'nav.containers.k8s'}}{{/link-to}}</li>
+    {{/if}}
+  </ul>
+
+  <div class="right-buttons">
+    {{#if (and (not simpleMode) tagChoices)}}
+      <div class="input-group inline-block mr-10">
+        <span class="input-group-btn inline-block">
+          <button type="button" class="btn btn-sm bg-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="icon icon-tag"></i> {{if tags tags "All"}} <i class="icon icon-chevron-down"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation" class="dropdown-header">
+              Stack Tags
+            </li>
+            <li>
+              <a {{action "setTags" ""}}>
+                <i class="icon icon-tag"></i>
+                All
+              </a>
+            </li>
+            <li class="divider"></li>
+            {{#each tagChoices as |tag|}}
+              <li>
+                <a {{action "setTags" tag}}>
+                  <i class="icon icon-tag"></i>
+                  {{tag}}
+                </a>
+              </li>
+            {{/each}}
+          </ul>
+        </span>
+      </div>
+    {{/if}}
+
+    {{#if showGroup}}
+      <div class="btn-group p-0 mr-10">
+        {{#tooltip-element type="tooltip-basic" model=(t 'nav.containers.groupNone') tooltipTemplate='tooltip-static' aria-describedby="tooltip-base" tooltipFor="tooltipLink"}}
+          {{#link-to (query-params group="none") classNames="btn btn-sm bg-default"}}<i class="icon icon-container"></i>{{/link-to}}
+        {{/tooltip-element}}
+        {{#if simpleMode}}
+          {{!-- In simple the stack one isn't shown, but pretend it's the default --}}
+          {{#tooltip-element type="tooltip-basic" model=(t 'nav.containers.groupService') tooltipTemplate='tooltip-static' aria-describedby="tooltip-base" tooltipFor="tooltipLink"}}
+            {{#link-to (query-params group="stack") classNames="btn btn-sm bg-default"}}<i class="icon icon-service"></i>{{/link-to}}
+          {{/tooltip-element}}
+        {{else}}
+          {{#tooltip-element type="tooltip-basic" model=(t 'nav.containers.groupService') tooltipTemplate='tooltip-static' aria-describedby="tooltip-base" tooltipFor="tooltipLink"}}
+            {{#link-to (query-params group="service") classNames="btn btn-sm bg-default"}}<i class="icon icon-service"></i>{{/link-to}}
+          {{/tooltip-element}}
+          {{#tooltip-element type="tooltip-basic" model=(t 'nav.containers.groupStack') tooltipTemplate='tooltip-static' aria-describedby="tooltip-base" tooltipFor="tooltipLink"}}
+            {{#link-to (query-params group="stack") classNames="btn btn-sm bg-default"}}<i class="icon icon-list-nested"></i>{{/link-to}}
+          {{/tooltip-element}}
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{yield}}
+  </div>
+</section>

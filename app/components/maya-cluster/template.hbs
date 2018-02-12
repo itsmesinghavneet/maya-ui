@@ -1,0 +1,74 @@
+<!--CLUSTER-->
+<div class="card cluster-card m-3 {{model.state}}" style="width:20rem;">
+    <span class="label">{{model.state}}</span>
+    <div class="card-body" >
+        <div class="float-right b-d dot-menu">
+            <a class="b-d" id="clustermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-hidden="true">
+            <img src="assets/images/icons/dot-menu.svg"></a>
+            <ul class="dropdown-menu" aria-labelledby="Cluster options">
+                {{#if (eq model.state "active")}}
+                <li class="dropdown-item" role="button" {{action "editCluster" model}}>{{t 'generic.edit'}}</li>
+                <div class="dropdown-divider"></div>
+                <li class="dropdown-item text-danger" role="button" {{action "deleteCluster" model}} data-toggle="modal" data-target="#delete-dialog">{{t 'generic.delete'}}</li>
+                {{else if (eq model.state "inactive")}}
+                {{#if (eq currentOrganizationState "active")}}
+                    <li class="dropdown-item" role="button">{{#link-to "mayasecure.clusters.cluster.import" model.id}}{{t 'clusterDashboard.generic.import'}}{{/link-to}}</li>
+                {{/if}}
+                        <li class="dropdown-item" role="button" {{action "editCluster" model}}>
+                            {{t 'generic.edit'}}
+                        </li>
+                <div class="dropdown-divider"></div>
+                <li class="dropdown-item text-danger" role="button" {{action "deleteCluster" model}} data-toggle="modal" data-target="#delete-dialog">{{t 'generic.delete'}}</li>
+                {{else}}
+                <li class="dropdown-item" role="button" {{action "editCluster" model}}>{{t 'generic.edit'}}</li>
+                <div class="dropdown-divider"></div>
+                <li class="dropdown-item text-danger" role="button" {{action "deleteCluster" model}} data-toggle="modal" data-target="#delete-dialog">{{t 'generic.delete'}}</li>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="cluster-provider-{{model.provider}}"></div>
+        <!--Active cluster link-->
+        {{#if (eq model.state "active")}}
+        <a href>
+            <div {{action "switchToProject" model.defaultProject.id}} class="cluster-details">
+                <h4 class="card-title cluster-name">{{model.displayName}}</h4>
+            </div>
+        </a>
+        <div class="b-d text-center" style="width:-moz-fit-content; width:fit-content; padding-top:3%;">
+            <span class="badge badge-primary b-d ">{{countApps}}</span><br>
+            <span class="b-d">{{t 'generic.app'}}</span> <!-- Still Not Tested // Need to Test After Importing-->
+        </div>
+        {{else}}
+        <!--Cluster link for status other than active-->
+        <!--CLUSTER DETAILS-->
+        {{#if (eq model.state "inactive")}}
+            <!--Cluster link active status-->
+        <div class="cluster-details">
+            {{#if (eq currentOrganizationState "active")}} 
+                {{#link-to "mayasecure.clusters.cluster.import" model.id}}
+                    <h4 class="card-title cluster-name">{{model.name}}</h4>
+                {{/link-to}}
+            {{else}}
+                <h4 {{action "notify"}}class="card-title cluster-name">{{model.name}}</h4>
+            {{/if}}
+        </div>
+        {{else if (eq model.state "activating")}}
+        <!--Cluster link activating status-->
+        <a href>
+            <div {{action "switchToProject" model.defaultProject.id}} class="cluster-details">
+                <h4 class="card-title cluster-name">
+                    {{model.displayName}}
+                </h4>
+            </div>
+        </a>
+        {{else}}
+        <!--Cluster link other status-->
+        <div class="cluster-details">
+            <h4 class="card-title cluster-name">{{model.name}}</h4>
+        </div>
+        {{/if}} {{/if}}
+    </div>
+</div>
+<!-- use it to print slack cards
+{{slackcards}}
+-->

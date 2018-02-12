@@ -1,0 +1,34 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" aria-label="Close" {{action 'close'}}>
+			<span aria-hidden="true">&times;</span>
+		</button>
+			<div class="d-flex b-d">
+				<div class="_slack" style="margin-bottom:1rem;">
+					<span class="float-right b-d">
+					{{slack-auth-onboard}}
+					</span>
+				</div>
+			</div>
+			<p>Send notifications about executions to your Slack channel</p>
+	</div>
+	<div class="modal-body">
+		{{#if slackcard}}
+			<div>
+				{{#each slackcard as |singleslackcard|}}
+					{{slack-cluster-checkbox model = singleslackcard updateClustersWithOptions = "updateClustersWithOptions"}}
+
+				{{/each}}
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-light"{{action 'save'}}>Save</button>
+				<button type="button" class="btn btn-danger"{{action 'close'}}>Cancel</button>
+			</div>
+		{{else}}
+			{{slack-auth-onboard}}
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger"{{action 'close'}}>Cancel</button>
+				</div>
+			{{/if}}
+	</div>
+</div>

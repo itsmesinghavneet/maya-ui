@@ -1,0 +1,18 @@
+<h5 class="pt-2 pb-2">
+    Configurations
+</h5>
+
+<p class="pt-2">Slack Integrations</p>
+<form class="form w-50">
+<div class="form-group">
+        <label>Client id</label>
+        {{input value=mulebotcid placeholder="Mulebot User Id" autocomplete="off" classNames="form-control"}}
+</div>
+<div class="form-group">
+        <label>Client secret</label> {{input value=mulebotcrt placeholder="Mulebot Client Secret" autocomplete="off" classNames="form-control"}}
+</div>
+<div class="form-group">
+        <label>Redirect URL</label>{{input value=mulebotrurl placeholder="Mulebot Redirect Url" autocomplete="off" classNames="form-control"}}
+</div>
+<button class="btn btn-primary" type="submit" {{action 'update' model}}>Save</button>
+</form>

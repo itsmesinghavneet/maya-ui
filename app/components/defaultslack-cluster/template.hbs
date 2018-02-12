@@ -1,0 +1,28 @@
+<div class="pt-4 cluster-confirm">
+  <h2 class="outlet_title text-secondary">Your cluster is imported.</h2>
+  <div class="d-flex align-items-center card-body mb-5" style="padding:0.6rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem;border-left:5px solid #2ea664; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+    <i class="fa fa-check-circle-o" aria-hidden="true" style="color:#2ea664;font-size:25px;"></i>
+    <p style="margin-bottom:0;padding-left:1%">Your cluster
+      <span class="font-weight-bold">{{cluster.name}}</span> is imported into your organization</p>
+  </div>
+  <div class="container">
+    <div class="row card-body align-items-center mt-2 mb-2" style="padding:0.8rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+      <div class="col-md-12">
+        <h4 class="mb-3" style="color:#0576b9">Your cluster has been imported. Next, you may select a slack card to connect this cluster.
+        </h4>
+      </div>
+      <div class="col-md-12 text-center">
+        <div class="d-flex w-100 mt-4 mb-2">
+          <button {{action 'connectToDefault'}} type="button" class="btn-size btn mr-3 ml-3 pr-3 pl-3 pt-2 pb-2 text-white" style="background-color:#2ea664;cursor: pointer;">Connect to the default slack card</button>
+          <button {{action 'createNewslackcard'}} type="button" class="btn-size btn mr-3 ml-3 pr-3 pl-3 text-white" style="background-color:#fc0;cursor: pointer;">Create a new slack card</button>
+          <button {{action 'selectExistingCard'}} type="button" class="btn-size btn mr-3 ml-3 pr-3 pl-3 text-white" style="background-color:#2d9ee0;cursor: pointer;">Select an existing slack card</button>
+        </div>
+      </div>
+      <div class="col-md-12 mb-4 mt-2">
+        <div class="btn-group w-100 text-center d-flex justify-content-center">
+          <button {{action 'doItLatter'}} type="button" class="btn-size btn mt-2 mr-3 ml-3 pt-2 pb-2 text-white" style="background-color:#717274;cursor: pointer;">I will do it later</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="b-d">
+    <div class="w-25">
+        {{input type="text" value=value key-up=(action 'handleFilterEntry') classNames="form-control" placeholder="Search"}}
+    </div>
+    <div class="mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">{{t 'adminPanelPage.tableHead.name'}}</th>
+                    <th scope="col">{{t 'adminPanelPage.tableHead.role'}}</th>
+                    <th scope="col">{{t 'generic.organizations'}}</th>
+                    <th scope="col">{{t 'adminPanelPage.tableHead.status'}}</th>
+                    <th scope="col">{{t 'adminPanelPage.tableHead.access'}}</th>
+                    <th scope="col">{{t 'adminPanelPage.tableHead.joined'}}</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each sortedModel as |account|}}
+                <tr>
+                    <td>
+                        <div class="avatar avatar-overlay"></div>
+                        <img src="https://s3.amazonaws.com/cdn-live.sketch.cloud/default_avatars/s/1.png" alt="" class="avatar">
+                        <span class="primary">
+            <div class="font-weight-bold">{{account.name}}
+            </div>
+            </span>
+                        <span class="email">
+                <div class="ellipsis-text">{{account.email}}
+                </div>
+            </span>
+                    </td>
+                    <td>{{account.kind}}</td>
+                    <td>Organizations</td>
+                    <td>{{account.state}}</td>
+                    {{#if account.accessGrant}}
+                    <td><label class="switch">
+                      <input type="checkbox" checked>
+                          <span class="slider round" {{action "userAccessGrant" account}}></span>
+                        </label>
+                    </td>
+                    {{else}}
+                    <td><label class="switch">
+                      <input type="checkbox">
+                          <span class="slider round" {{action "userAccessGrant" account}}></span>
+                        </label>
+                    </td>
+                    {{/if}}
+                    <td>{{account.created}}</td>
+                    <td>
+                        <div class="b-d">
+                            <a class="b-d" id="clustermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-hidden="true">
+                            <img src="{{rootURL}}../../assets/images/icons/dot-menu.svg"></a>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="Cluster options">
+                                <li class="dropdown-item" role="button" {{action "userAccess" account}}>
+                                {{t 'generic.change'}} {{t 'adminPanelPage.tableHead.role'}}</li>
+                                <div class="dropdown-divider"></div>
+                                <li class="dropdown-item text-danger" role="button">{{t 'generic.deactivate'}}</li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

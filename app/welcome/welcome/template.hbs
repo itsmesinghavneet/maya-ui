@@ -1,0 +1,176 @@
+<nav class="navbar navbar-expand-md b-d">
+    <div class="container nav-div b-d">
+        <a class="navbar-brand"><img src="{{rootURL}}assets/images/mayaonline.png" height="auto" width="150"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                {{#each model as |account|}}
+                <li class="nav-item dropdown  b-d">
+                    <a class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">{{maya-welcome-profile model=account}}</a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                         <a class="dropdown-item" >Profile</a>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--NAV end-->
+<!--HERO SECTION-->
+<div class="container b-d" style="margin-top:5%;">
+    <div class="row" style="align-items: center;">
+        <div class="col-md-5 b-d">
+            <div class="text-center">
+            <img src="{{rootURL}}assets/images/maya_mule.svg" height="400px" width="auto">
+            </div>
+        </div>
+        <div class="col-md-7 b-d p-3">
+            <div class="b-d tag-line mb-2">
+                <h1>Thank you for signing up !</h1>
+                {{#each model as |account|}} {{#if account.email}}
+                <h2 class="pt-3 pb-3">
+                    We are processing your account for <span style="color:#555555;">{{account.email}}</span>, <br>We are going to get back to you soon.
+                </h2>
+                {{else}} {{maya-welcome-mail model=account}} {{/if}} {{/each}}
+            </div>
+            <div class="b-d tag-line mb-2">
+                    <h1>
+                    The first universal data plane for microservices.</h1>
+                    <h2 class="pt-3 pb-3">
+                    Manage your kubernetes applications data seamlessly. Move your workloads across clouds with ease.
+                    </h2>
+                </div>
+        </div>
+        <!--Login dialog-->
+        <div class="modal in" id="loginpop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog conf-dialog">
+                <div class="modal-content" style="border:none;">
+                    <div class="modal-body m-2">
+
+                        <h1 class="maya-txt pb-3" style="text-align: center;">
+                            <img src="assets/images/maya-cloud-txt.svg" height="auto" width="250px">
+                        </h1>
+                        <p class="muted-text" style="font-size:14px; text-align: center;">Login with,</p>
+                    </div>
+                    <div class="oauth-login  mb-4">
+                        <div style="text-align: center;">
+                            {{login-github action="started" waiting=waiting}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--End login dialog-->
+<!--Video overlay-->
+<div style="margin-top:5%;" class="b-d">
+    <div class="video-container">
+        <div class="conatiner">
+            <div style="align-items: center;" class="row">
+                <div class="col-md-12">
+
+                    <script src="https://fast.wistia.com/embed/medias/x4tje2otff.jsonp" async=""></script>
+                    <script src="https://fast.wistia.com/assets/external/E-v1.js" async=""></script>
+                    <div style="padding:56.21% 0 0 0;position:relative;" class="wistia_responsive_padding">
+                        <div style="height:100%;left:0;position:absolute;top:0;width:100%;" class="wistia_responsive_wrapper">
+
+                            <span style="display:inline" class="wistia_embed wistia_async_x4tje2otff popover=true popoverAnimateThumbnail=true popoverContent=link videoFoam=true wistia_embed_initialized" id="wistia-x4tje2otff-1"><div id="wistia_30.thumb_container" class="wistia_click_to_play" style="position: relative; display: inline;">
+                
+                <div style="padding-top:10%;">
+                  <center>
+                  <p style="color:#fff; font-size:21px;" class="mb-4">Manage your kubernetes applications data seamlessly.<br> Move your workloads across clouds with ease.</p>
+                  <a href="#">
+                    <div class="btn-player mt-3"></div>
+                  </a>
+                  </center>
+                </div>
+                
+              </div></span></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END video overlay-->
+<!--Featured Section-->
+<div class="container" style="padding:5% 0; ">
+    <div class="row">
+        <div class="col-md-12">
+            <div style="text-align:center; padding:5%;">
+                <h2 class="fn-l" style="font-size:23px;">FEATURES</h2>
+            </div>
+        </div>
+        <div class="col-md-3 b-d" style="text-align:center;">
+            <div class="m-4 ">
+                <img src="{{rootURL}}assets/images/f4.svg" class="img-fluid" height="40px" width="82px">
+            </div>
+            <div>
+                <h2 style="font-size:22px; font-weight:lighter;">Easy Upgrade</h2>
+                <p class="fn-l" style="font-size:14px;">Press-button Kubernetes upgrades.</p>
+            </div>
+        </div>
+        <div class="col-md-3 b-d" style="text-align:center;">
+            <div class="m-4 ">
+                <img src="{{rootURL}}assets/images/f2.svg" class="img-fluid" height="40px" width="82px">
+            </div>
+            <div>
+                <h2 style="font-size:22px; font-weight:lighter;">Load Balancing
+                </h2>
+                <p class="fn-l" style="font-size:14px;">HAProxy on your cluster.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3 b-d" style="text-align:center;">
+            <div class="m-4 ">
+                <img src="{{rootURL}}assets/images/f3.svg" class="img-fluid" height="40px" width="82px">
+            </div>
+            <div>
+                <h2 style="font-size:22px; font-weight:lighter;">Volume Support</h2>
+                <p class="fn-l" style="font-size:14px;">PV (Persistent Volume) and PVC (Persistent Volume Claims).</p>
+            </div>
+        </div>
+        <div class="col-md-3 b-d" style="text-align:center;">
+            <div class="m-4 ">
+                <img src="{{rootURL}}assets/images/f4.svg" class="img-fluid" height="40px" width="82px">
+            </div>
+            <div>
+                <h2 style="font-size:22px; font-weight:lighter;">Dashboard</h2>
+                <p class="fn-l" style="font-size:14px;">Latest Kubernetes dashboard.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer Section-->
+<div class="container-fluid" style="margin-top:20%;">
+    <div class="row">
+        <div class="col-md-12">
+            <footer class="bd-footer text-muted fn-l">
+                <div class="container p-md-3">
+                    <ul class="bd-footer-links text-muted">
+                        <li>© 2017- 2018 Cloudbyte, inc. </li>
+                        <li><a href="http://www.mayadata.io" target="_blank" class="text-muted fn-l">CloudByte</a></li>
+                        <li><a>Terms of Service</a></li>
+                        <li><a>Privacy Policy</a></li>
+                        <li><a>Contact Us</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #fff;
+        padding-top: 0;
+        font-size: 100%;
+    }
+</style>

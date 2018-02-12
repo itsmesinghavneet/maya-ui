@@ -1,0 +1,23 @@
+
+<div class="modal in maya-modal" id="slack-dialog" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog conf-dialog">
+        <div class="modal-content" style="border:none;">
+            <a aria-hidden="true" data-dismiss="modal" aria-label="Close" class="float-right close-modal" {{action "closePopup"}}>&#x2715;</a>
+            <div class="modal-body m-4">
+                <div class="_slack"></div>
+                <div class="pt-3">
+                    <span style="font-size:22px;">{{originalModel.name}}</span>
+                </div>
+                <div class="pt-3">
+                    <span>Connection URL:</span>
+                    <div class="pt-2">
+                        <a href="{{originalModel.url}}" target="_blank">
+                            <code>{{originalModel.url}}</code>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

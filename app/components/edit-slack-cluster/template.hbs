@@ -1,0 +1,41 @@
+<div class="modal-overlay show modal-open">
+    <div class=" modal-container modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-center" style="margin-bottom:8%;">
+                    <div style="margin-right:10px;">
+                        <img src="assets/images/slack-logo.png" height="43px" width="auto">
+                    </div>
+                    <div>
+                        <span style="font-size:24px; color:#3F3F3F; font-weight: 600;">{{t 'organization.slack.edit.header.header1'}}</span>
+                    </div>
+                </div>
+                <div class="card" style="border: 1px solid #019D52; background:#F9F9F9;">
+                    <div class="card-body">
+                        <div>
+
+                            <span style="color:#474747; font-weight:600;">{{t 'organization.slack.edit.generic.workspace'}}</span><span style="margin-left:2%; font-weight:600;">{{slackintegration.token.teamName}}</span>
+                        </div>
+                        <div>
+                            <span style="color:#474747; font-weight:600; text-align:right;">{{t 'organization.slack.edit.generic.channel'}}</span><span style="margin-left:2%; font-weight:600; color:#26CB7C;">{{slackintegration.token.incomingWebhook.channel}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin:5% 0;">
+                    <p style="color:#495057; font-weight:700; margin:0;">{{t 'organization.slack.edit.subHeader.subHeader1'}}</p>
+                    <span>{{t 'organization.slack.edit.subHeader.subHeader2'}}<span> {{slackintegration.token.incomingWebhook.channel}}</span> {{lower-case (t 'organization.slack.edit.generic.channel')}}.</span>
+                </div>
+                <div class="d-flex flex-wrap w-75">
+                    {{#each clustersWithOptions as |options|}}
+                    <p class="w-50" style="color:#4F4E4E;">
+                        {{slack-cluster-checkbox model = options updateClustersWithOptions = "updateClustersWithOptions"}}
+                    </p>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" {{action "save"}}>{{t 'generic.done'}}</button>
+            </div>
+        </div>
+    </div>
+</div>

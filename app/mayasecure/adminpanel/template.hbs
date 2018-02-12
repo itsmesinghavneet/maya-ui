@@ -1,0 +1,26 @@
+<p class="outlet_title">{{t 'adminPanelPage.header.title'}}</p>
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <ul class="nav">
+                    <li class="nav-item">
+                        {{#link-to 'mayasecure.adminpanel.user' classNames="nav-link"}}{{t 'generic.users'}}
+                        {{/link-to}}
+                    </li>
+                    <li class="nav-item">
+                        {{#link-to 'mayasecure.adminpanel.organization' classNames="nav-link"}}
+                        {{t 'generic.organizations'}}{{/link-to}}
+                    </li>
+                    <li class="nav-item">
+                        {{#link-to 'mayasecure.adminpanel.settings' classNames="nav-link"}}
+                        {{t 'generic.settings'}}{{/link-to}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                {{outlet}}
+            </div>
+    </div> 

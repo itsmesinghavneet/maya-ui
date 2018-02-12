@@ -1,0 +1,10 @@
+<p class="b-d">Grafana Credentials</p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="integration-item">
+                {{#each model.organizations as |organizations|}}
+                    {{maya-grafana model=organizations}}
+                {{/each}}
+            </div>
+        </div>
+    </div>

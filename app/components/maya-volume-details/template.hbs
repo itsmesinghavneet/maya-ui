@@ -1,0 +1,20 @@
+<h5>Controller</h5>
+<div style="margin-top:5%; margin-bottom:2%">
+    <div class="card">
+        <div class="card-body">
+            <p>{{model.controller.name}}</p>
+            <i class="mi circle-active"></i> {{model.controller.state}}
+        </div>
+    </div>
+</div>
+<h5>Replica</h5>
+<div style="margin-top:5%;">
+    {{#each model.replica as |replica|}}
+    <div class="card mb-2">
+        <div class="card-body">
+            <i class="mi circle-active"></i>{{replica.state}}<br> 
+            {{replica.name}}
+        </div>
+    </div>
+    {{/each}}
+</div>

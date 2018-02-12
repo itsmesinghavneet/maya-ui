@@ -1,0 +1,300 @@
+{{#each model as |account|}} {{maya-faq}}
+<nav class="navbar navbar-expand-md b-d fixed-top" style="background:#454745; height:60px;">
+    <div class="container b-d">
+
+        <a class="navbar-brand"><img src="assets/images/maya-mw.svg" height="30" width="auto"></a>
+        <div class="d-flex flex-hide">
+            <div class="">
+                <a class="nav-item nav-link" href="#" style="color:#fff;" data-toggle="modal" data-target="#modal-faq">FAQ<span class="sr-only"></span></a>
+            </div>
+            <div class="">
+                {{#link-to 'logout'}}<a class="nav-item nav-link" style="color:#fff;">Logout<span class="sr-only"></span></a> {{/link-to}}
+
+            </div>
+        </div>
+        <div class="navbar">
+            <ul class="navbar-nav ml-auto" style="flex-direction:row;">
+                <li class="nav-item">
+                    <a class="nav-link" style="color:#fff;"><b>{{account.name}}</b><br><span style="font-size:13px;">access request pending</span></a> 
+                    {{#if account.email}}
+                    {{else}} 
+                    {{maya-welcome-mail model=account}} 
+                    {{/if}}
+                </li>
+                <li class="nav-item b-d">
+                    <a class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">{{maya-welcome-profile model=account}}</a>
+                </li>
+            </ul> 
+        </div>
+    </div>
+</nav>
+<!--NAV end-->
+<!--HERO SECTION-->
+<div class="cloud-bg">
+<div id="clouds" class="b-d ">
+    <div class="cloud x1"></div>
+    <div class="container b-d">
+        <div class="row" style="align-items: center;">
+            <div class="col-md-6 b-d" style="padding-left:5%;">
+                <div class="b-d">
+                    <img src="assets/images/mayaonline.png" height="auto" width="100%" class="b-d">
+                </div>
+                <div class="b-d">
+                    <p class="pt-4 pb-4" style="color:#464846; font-size: 22px;">Hey! {{account.name}},<br><br>Welcome to MayaOnline. Your request for access is pending. You will receive an invite at your email address <em>{{account.email}}</em>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 b-d" style="padding: 0;">
+                <img src="assets/images/flying-mule-new.png" class="float-right b-d" style=" margin-right:5%; height:300px; width:auto; transform: scaleX(-1);">
+            </div>
+        </div>
+    </div>
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+</div>
+</div>
+<!--Hero end-->
+
+<!--mayaonline faq section-->
+<div class="container b-d">
+    <div class="row" style="align-items: center;">
+        <div class="col-md-6 p-4 b-d" style="background: -webkit-linear-gradient(180deg, rgb(164, 209, 249), rgb(3, 104, 120));
+	background: linear-gradient(180deg, rgb(164, 209, 249), rgb(3, 104, 120));" data-toggle="modal" data-target="#modal-faq">
+            <img src="assets/images/screens/faq-banner.png" class="img-fluid">
+        </div>
+        <div class="col-md-6 b-d ">
+            <h4 class="text-center ">cMotion Demo</h4>
+            <div class="videoWrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/TSx2xpSzJxs?ecver=1" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--mayaonline faq section-->
+
+<!--openebs intro video-->
+<h4 class="text-center mt-4 mb-2">OpenEBS</h4>
+<div class="container b-d pb-4">
+    <div class="row" style="align-items: center;">
+        <div class="col-md-12 b-d">        
+                <div class="videoWrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ePlEzZSUH1w?ecver=1" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                </div>
+        </div>
+    </div>
+</div>
+
+<!--End openebs intro video-->
+<section style="background-color: #414141;" class="mt-4">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="joinpadding">
+                    <p style="text-align:center;color:#fff; font-weight:bold;">Follow our OpenEBS community</p>
+                    <ul class="" style="display:flex;text-align:center;justify-content: center;margin-bottom: 0%; -webkit-padding-start:0%">
+
+                        <a href="https://blog.openebs.io" target="_blank" rel="noopener noreferrer">
+                            <li class="nav-item p-3" style="display:inline;" title="Blog"><i class="fa fa-medium" style="color:#f93;font-size:1.5rem" aria-hidden="true"></i></li>
+                        </a>
+                        <a href="https://twitter.com/openebs" target="_blank" rel="noopener noreferrer">
+                            <li class="nav-item p-3" style="display:inline;" title="Twitter"><i class="fa fa-twitter" style="color:#f93;font-size:1.5rem" aria-hidden="true"></i></li>
+                        </a>
+
+                        <a href="http://slack.openebs.io" target="_blank" rel="noopener noreferrer">
+                            <li class="nav-item p-3" style="display:inline;" title="Slack"><i class="fa fa-slack" style="color:#f93;font-size:1.5rem" aria-hidden="true"></i></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!--Footer Section-->
+<div class="container-fluid" style="background-color:#cbcbcb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="display:flex;justify-content:space-around;align-items: center;">
+                <div class="row footer-space">
+                    <div class="allfooter">
+                        <div class="footer-openebs">
+                            <a href="https://openebs.io" target="_blank"> <img src="assets/images/openebs.svg" alt="openebs" title="Go to OpenEBS" class="footer-logo1"></a>
+                        </div>
+                        <div class=" footer-address">
+                            <p>MayaData Inc. 4300 Stevens Creek Boulevard, Suite 270 San Jose, CA 9512</p>
+                        </div>
+                        <div class="footer-openebs">
+                            <a href="https://mayadata.io" target="_blank"> <img src="assets/images/mayadata.png" class="footer-logo1" alt="mayadata" title="Go to MayaData"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+<style>
+    body {
+        margin-top: 2%;
+        background-color: #fff;
+        padding-top: 0;
+        font-size: 100%;
+    }
+
+    .modal-backdrop {
+        z-index: 1;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .features-list ul {
+        margin-top: 4%;
+    }
+
+    li {
+        padding: 2% 0;
+        color: #141414;
+        font-weight: light;
+    }
+
+    .bg-w {
+        background-color: #fff;
+    }
+
+    .kubcon-bg {
+        background: url(images/kubcon/kubeconbg.png);
+    }
+
+    .joinpadding {
+        padding: 0rem 3rem 0rem 3rem;
+    }
+
+    .footer-space {
+        margin-top: 0%;
+        padding: 1.5rem 3rem 1.5rem 3rem;
+        /* padding-bottom: 4%; */
+    }
+
+    .allfooter {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-logo1 {
+        height: 100%;
+        width: 83%;
+    }
+
+    .footer-logo2 {
+        height: 100%;
+        width: 100%;
+    }
+
+    .footer-openebs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 20%;
+    }
+
+    .footer-address {
+        color: #414141;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        width: 60%;
+    }
+
+    .footer-address p {
+        text-align: center;
+        margin-bottom: 0%;
+    }
+
+    .footer-mayaonline {
+        display: flex;
+        justify-content: flex-end;
+        text-align: end;
+        align-items: center;
+    }
+
+    .mayaonlineandadd {
+        display: flex;
+    }
+
+    @media screen and (max-width:767px) {
+        .footer-logo1 {
+            height: 100%;
+            width: 75%;
+        }
+        .footer-logo2 {
+            height: 100%;
+            width: 75%;
+        }
+        .footer-openebs {
+            text-align: center;
+            justify-content: center;
+        }
+        .footer-mayaonline {
+            text-align: center;
+            justify-content: center;
+        }
+        .footer-openebs {
+            padding: 1%;
+        }
+        .footer-address {
+            padding: 1%
+        }
+        .footer-mayaonline {
+            padding: 1%;
+        }
+        .allfooter {
+            display: flex;
+        }
+        .footer-address p {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media screen and (max-width:660px) {
+        .footer-space {
+            padding: 0.7rem;
+        }
+        .footer-openebs {
+            padding: 0.7%;
+        }
+        .footer-address {
+            padding: 0.7%
+        }
+    }
+
+    @media screen and (max-width:560px) {
+        .footer-address p {
+            font-size: 0.7rem;
+        }
+    }
+
+    @media screen and (max-width:450px) {
+        .footer-space {
+            padding: 0.5rem;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .footer-mayaonline {
+            display: flex;
+            justify-content: flex-end;
+            text-align: end;
+            align-items: center;
+        }
+    }
+</style>

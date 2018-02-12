@@ -1,0 +1,52 @@
+<!--CLUSTER DETAILS HEADER-->
+<div style="margin-top:4%;">
+    <div class="mb-2">
+        <a class="btn btn-light" href="{{href-to 'mayasecure.clusters'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Clusters</a>
+    </div>
+    <div class="row mt-4 mb-4" style="align-items:center;">
+        <div class="col-md-2">
+            <div class="cluster-provider-{{currentCluster.provider}} b-d" style="height:50px;"></div>
+        </div>
+        <div class="col-md-10 b-d">
+            <div class="d-flex align-items-start">
+                <div class="b-d">
+                    <span><h2 class="cluster-head">{{currentCluster.name}}</h2></span>
+                    <span>
+                        <p style="text-transform: capitalize;"><i class="mi circle-active"></i> {{currentCluster.state}}</p></span>
+                </div>
+                <div class="b-d mr-3 ml-5">
+                    <div class="b-d text-center" style="width:fit-content; padding-top:3%;">
+                        <span class="badge badge-secondary b-d ">{{model.mayaapplications.length}}</span><br>
+                        <span class="b-d">Apps</span></div>
+                </div>
+                <div class="b-d">
+                    <div class="b-d text-center" style="width:fit-content; padding-top:3%;">
+                        <span class="badge badge-secondary b-d ">{{model.hosts.length}}</span><br>
+                        <span class="b-d">Hosts</span></div>
+                </div>
+                <!--
+                
+                <div class="b-d">
+                    <div class="b-d text-center" style="width:fit-content; padding-top:3%;">
+                        <span class="badge badge-secondary b-d ">{{slackcards.length}}</span><br>
+                        <span class="b-d">Slack</span></div>
+                
+                    <button class="btn btn-primary" {{action "slackConfiguration"}}>slack Configuration</button>
+                
+                </div>
+                
+                -->
+                <div class="b-d ml-auto">
+                    <button class="btn btn-primary" {{action "dashboard"}}>Kubernetes Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END CLUSTER DETAILS HEADER-->
+    <div class="mt-4">
+        {{cluster-details-header model = model.project transitionToHost="transitionToHost" transitionToContainer="transitionToContainer"}}
+    </div>
+    <div class="mt-4">
+        {{outlet}}
+    </div>
+</div>

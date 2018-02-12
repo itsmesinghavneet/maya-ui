@@ -1,0 +1,23 @@
+<div class="card mr-3 mb-3" style="width:22rem;">
+    <div class="card-body">
+        <div class="row b-d">
+            <div class="col-3 align-self-center b-d ">
+                <div class="app-{{model.name}} b-d" style="height:50px;"></div>
+            </div>
+            <div class="col b-d">
+                <div>
+                    {{#link-to "mayaapplication" model.id}}
+                    <h4 class="card-title cluster-name text-cap">{{model.name}}</h4>{{/link-to}}
+                    <span class="text-cap"><i class="mi circle-active"></i>
+                    {{model.state}}</span>
+                </div>
+                <div class="mt-3">
+                    <span class="badge badge-secondary b-d ">{{noOfPods}}</span>
+                    <span class="b-d mr-1">Pods</span>
+                    <span class="badge badge-secondary b-d ">{{noOfVol}}</span>
+                    <span class="b-d mr-1">Volumes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+ {{#if (eq currentOrganizationState "creating")}}
+     {{loading-for-organization updateState="updateState"}} 
+ {{/if}}
+ {{#if model.clusters}}
+         {{maya-clusters model=model.clusters slackclusterassociation=model.slackclusterassociations slackintegration = model.slackintegrations switchProject="switchProject" importCluster="importCluster"}}
+{{else}}
+{{get-started importCluster="importCluster"}} 
+{{/if}}

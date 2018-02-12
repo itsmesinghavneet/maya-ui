@@ -1,0 +1,27 @@
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" aria-label="Close" {{action 'close'}}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title">{{model.title}}</h5>
+        <h5 class="modal-sub-title">{{model.subtitle}}</h5>
+        
+      </div>
+      <div class="modal-body">
+          {{#tag-input
+              tags=tags
+              type=email
+              placeholder=(t 'invite.subHeader.subHeader2')
+              addTag=(action 'addTag')
+              allowDuplicates=flase
+              removeTagAtIndex=(action 'removeTagAtIndex')
+              as |tag|
+          }}
+      {{tag}}
+      {{/tag-input}}
+        <p class="text-warning" id="notify"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-lg btn-block"{{action 'invite'}}>{{t 'invite.btn.btnLabel' inviteeCount=tags.length}}</button>
+      </div>
+    </div>

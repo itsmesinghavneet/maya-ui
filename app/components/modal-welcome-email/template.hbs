@@ -1,0 +1,29 @@
+<!--ImportOpenEBS Dialog-->
+<div class="modal in maya-modal b-d" id="welcomedialog" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog maya-dialog b-d">
+        <div class="modal-content email-modal" style="border:none;">
+            <div class="modal-body m-4 b-d">
+                <a aria-hidden="true" href="" data-dismiss="modal" aria-label="Close" class="float-right close-modal b-d">&#x2715;</a>
+                <div class="text-center">
+                    <img src="assets/images/maya-mule.png" height="100" width="auto">
+                    <p class="pt-3">We are currently running MayaOnline for a small set of users. Please provide your email id below, we will enable the access to you soon and let you know through email.</p>
+                    <div class="pt-4">
+                        <form  style="padding:1% 30%;" class="b-d">
+                            <div class="form-group">
+                                    {{input value=userEmail type="email" value=userEmail class="form-control" id="welcome-email" aria-describedby="user-email" placeholder="Enter email"}}
+                             </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-maya pt-2" {{action 'editAccount' model}}>Send me invite</button>
+                            </div>
+                            <a class="pr-3 btn-cancel" aria-hidden="true" data-dismiss="modal" aria-label="Close" style="color:#0e8fff;">Later</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END ImportOpenEBS Dialog-->
+<script>
+    $('#welcomedialog').modal('show');
+</script>

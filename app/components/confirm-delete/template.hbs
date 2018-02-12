@@ -1,0 +1,14 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" {{action 'cancel'}}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title">{{t 'confirmDelete.title'}} {{resourceType}} {{resourceName}}?</h5>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <button {{action "cancel"}} type="button" class="btn btn-light">{{t 'modalconfirmdelete.cancel' }}</button>
+        <button {{action "confirm"}} class="btn btn-danger" data-dismiss="modal">{{t 'modalconfirmdelete.delete' }}</button>
+    </div>
+</div>

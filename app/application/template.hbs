@@ -1,0 +1,24 @@
+{{head-layout}}
+<div id="underlay" class="underlay hide b-d"></div>
+<div id="loading-underlay" class="underlay"></div>
+
+<!--Application Loading icon maya -->
+
+<div id="loading-overlay" class="loading-overlay">
+  {{#if settings.isRancher}}
+<center>
+  <div style="background-color:#fff; width:100px; height:100px; border-radius:4%; padding-top:2%;">
+<div class="loader"></div>
+</div>
+</center>
+ <!--End Application Loading icon -->
+  {{else}}
+    <div class="whiteboxloader">
+      <div class="loader-inner ball-clip-rotate-pulse">      
+      </div>
+    </div>
+  {{/if}}
+</div>
+<div id="application">
+{{outlet}}
+</div>

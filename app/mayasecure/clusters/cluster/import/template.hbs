@@ -1,0 +1,57 @@
+{{#if (eq cluster.state "active")}}
+    {{defaultslack-cluster cluster=cluster goToDefaultProjectproject="goToDefaultProjectproject"}} 
+{{else}}
+{{#if importCommand}}
+    <div class="pt-4">
+        {{cluster-import-hrader cluster =cluster}}
+    <div class="row justify-content-center">
+        <!--IMPORT OpenEBS-->
+        <div class="col-md-3">
+            <div class="p-4 mb-5 bd-r-3 openebs-cluster-card {{activeCluster}}" {{action 'importdialog'}}>
+                <div style="display: inline-block;">
+                    <div style="padding-top:5%;">
+                        <p>{{t 'clusterDashboard.cluster.import.existingOpenEbs'}}</p>
+                    </div>
+                    <img class="import-image" src="{{rootURL}}../../assets/images/cluster/import_openebs.png">
+                </div>
+            </div>
+        </div>
+        <!--INSTALL OpenEBS-->
+        <div class="col-md-3">
+            <div class="p-4 mb-5 bd-r-3 openebs-cluster-card {{activeOpenEbsCluster}}" {{action 'installdialog'}}>
+                <div style="display: inline-block;">
+                    <div style="padding-top:5%;">
+                        <p>{{t 'clusterDashboard.cluster.import.nonExistingOpenEbs'}}</p>
+                    </div>
+                    <img class="import-image" src="{{rootURL}}../../assets/images/cluster/install-openebs.png">
+                </div>
+            </div>
+        </div>
+        <!--IMPORT OpenEBS-->
+        <div class="col-md-3">
+            <div class="p-4 mb-5 bd-r-3 openebs-cluster-card {{activeOpenShiftCluster}}" {{action 'importOpenShist'}}>
+                <div style="display: inline-block;">
+                    <div style="padding-top:5%;">
+                        <p>{{t 'clusterDashboard.cluster.import.existingOpenEBSRedshift'}}</p>
+                    </div>
+                    <img class="import-image" src="{{rootURL}}../../assets/images/openebsopenshift.png">
+                </div>
+            </div>
+        </div>
+        <!--INSTALL OpenEBS-->
+        <div class="col-md-3">
+            <div class="p-4 mb-5 bd-r-3 openebs-cluster-card {{activeOpenShiftOpenEbsCluster}}" {{action 'installOpenShift'}}>
+                <div style="display: inline-block;">
+                    <div style="padding-top:5%;">
+                        <p>{{t 'clusterDashboard.cluster.import.nonExistingOpenEBSRedshift'}}</p>
+                    </div>
+                    <img class="import-image" src="{{rootURL}}../../assets/images/openshiftopenebs.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{cluster-command commandType=commandType importCommand=importCommand installCommand=installCommand importOCCommand=importOCCommand installOCCommand=installOCCommand}}
+{{/if}}
+{{/if}}
+{{maya-cluster-import startRefresh="startRefresh" stopRefresh="stopRefresh"}}

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg maya-header">
+    <div class="container">
+        <a class="navbar-brand" href="{{href-to 'mayasecure.dashboard'}}"><img src="assets/images/mayaonline-w.png" alt="MayaOnline" height="auto" width="202px" title="Home"></a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto dsp-large">
+
+            </ul>
+        </div>
+        <ul class="navbar-nav ml-auto maya-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{t 'organization.title' singularity=1}}        
+               </a>
+                <div class="dropdown-menu" style="padding:0 0 1rem 0; width:15rem;">
+                    <div style="background:#E7E7E7;">
+                        <p style="font-size:18px; padding:5% 5%;">Organizations</p>
+                    </div>
+                    <a class="dropdown-item" href="{{href-to 'mayasecure.organizations'}}" style="padding:0.8rem 1.5rem;">organization-name</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={{href-to 'mayasecure.clusters'}}>Clusters</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={{grafanaUrl}}>{{t 'organization.monitoring.title'}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href>{{t 'organization.slack.title'}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://docs.mayaonline.io" target="_blank">Docs</a>
+            </li>
+            {{#if (eq userType "admin")}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{href-to 'mayasecure.adminpanel.user'}}">{{t 'adminPanelPage.header.title'}}</a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+                <a class="nav-link" href {{action 'inviteFriends'}}>Invite</a>
+            </li>
+            {{#each model.identities as |profile|}} {{#if (eq profile.externalIdType "github_user")}}
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{profile.login}}        
+               </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href={{href-to 'logout'}}>{{t 'generic.logout'}}</a>
+                </div>
+            </li>
+            <span class="user-avatar">
+                <img src="{{profile.profilePicture}}">  
+             </span> {{/if}} {{/each}}
+        </ul>
+    </div>
+</nav>
+
+
+<style>
+    .maya-nav li{
+padding:0 0.5rem;
+    }
+</style>

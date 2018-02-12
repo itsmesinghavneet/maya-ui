@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="604" viewBox="0 0 1440 604">
+  <defs>
+    <linearGradient id="desk-bg-a" x1="0%" y1="50%" y2="50%">
+      <stop offset="0%" stop-color="#5EA2B2"/>
+      <stop offset="100%" stop-color="#426185"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="1440" height="604" fill="#FFF"/>
+    <polygon fill="url(#desk-bg-a)" points="0 0 1440 0 1440 481.096 0 320.636"/>
+  </g>
+</svg>

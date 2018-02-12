@@ -1,0 +1,26 @@
+<div class="col-4">
+    <div class="card" style="width:22rem; margin:2% 0">
+        <div class="card-body">
+            <div style="margin-bottom:12%;" {{action "changeVolume" model.name}} style="cursor:pointer;">
+               {{#if (eq model.name volumename)}}
+                    {{#if showvolumes}}
+                        <h5><strong>{{model.name}}</strong></h5>
+                    {{else}}
+                        <h5>{{model.name}}</h5>
+                    {{/if}}
+                {{else}}
+                    <h5>{{model.name}}</h5>
+                {{/if}}
+                <p><i class="mi circle-active"></i> {{model.state}}</p>
+            </div>
+            <div>
+                <ul class="list-inline">
+                    <li class="list-inline-item">Capacity <strong>{{model.capacity}}</strong></li>
+                    <li class="list-inline-item">Replicas <strong>{{model.replica.length}}</strong></li>
+                    <li class="list-inline-item ml-2"><a href="{{grafanaUrlVol}}{{model.name}}" target="_blank"><img src="assets/images/grafana.svg" style="height:20px; weight:20px;" title=" Analytics">
+           </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

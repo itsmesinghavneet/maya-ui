@@ -1,0 +1,13 @@
+{{input type="checkbox" checked=model.isChecked change=(action "updateClustersWithOptions" model)}}
+<span class="mr-4">{{model.name}}
+{{#if (eq model.resource.type "slackIntegration")}}
+	{{#if model.isChecked}}
+		{{model.resource.token.teamName}}
+		<span style="color:#30CB7B; font-size:16px; font-weight:600;">
+			{{#if printlock}}
+				<i class="fa fa-lock" aria-hidden="true"></i>
+			{{/if}}{{model.resource.token.incomingWebhook.channel}}
+		</span>
+	{{/if}}
+{{/if}}
+</span>

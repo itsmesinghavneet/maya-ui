@@ -1,0 +1,13 @@
+<div>
+    <span class="head">{{t 'organization.slack.title'}} {{t 'organization.slack.generic.card' singularity=0}}:</span>
+    <span><button type="button" class="btn btn-primary float-right" 
+        style="cursor:pointer;color:black;background-color: rgb(243, 243, 243); border-color: rgb(204, 204, 204); font-weight: 100;margin-left:5%" {{action 'expand'}}>{{btnLabel}}</button>
+    </span>
+    <p>{{t 'organization.slack.header.header1'}}</p> 
+</div>
+
+<div id="expand-slack" style="display: none;">
+ <div class="integration-item">
+        {{integration-items slackmodel=model.slackintegrations clustermodel=model.slackclusters organizationmodel=model.organizations}}
+</div>
+</div>  

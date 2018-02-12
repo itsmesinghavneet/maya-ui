@@ -1,0 +1,10 @@
+<div>
+    <span class="head">{{t 'organization.monitoring.grafana'}} {{t 'organization.monitoring.generic.credential'}}:</span>
+    <span><button type="button" class="btn btn-primary float-right" 
+        style="cursor:pointer;color:black;background-color: rgb(243, 243, 243); border-color: rgb(204, 204, 204); font-weight: 100;margin-left:5%" {{action 'expand'}}>{{btnLabel}}</button>
+    </span>
+    <p>{{t 'organization.monitoring.header.header1'}}</p> 
+</div>
+<div id="expand-grafana"  style="display: none;">
+{{#if model.apiKey}} {{monitoring-credentials model=model}} {{/if}}
+</div>

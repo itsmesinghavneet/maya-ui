@@ -1,0 +1,15 @@
+<div class="d-flex align-items-center card-body mb-5" style="padding:0.8rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem;border-left:5px solid #717274; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+ <i class="fa fa-exclamation-circle" aria-hidden="true" style="color:#717274;font-size:25px;"></i>
+  <p style="margin-bottom:0;padding-left:1%">Copy the below command and execute it on the kubernetes shell and wait for the import process to complete</p>
+</div>
+ <div class="bd-clipboard"> 
+    {{#copy-button clipboardTarget="#commands" title='copy to clipboard' classNames='btn-clipboard btn btn-secondary btn-sm'}}
+        {{t 'generic.copy'}}
+    {{/copy-button}}
+ </div>
+<div class="code-ray" >
+    <p class="mb-0" id="commands">{{command}}</p>
+</div>
+<div>
+    <p class="mt-2 mb-2 d-flex justify-content-center align-items-center "><span><i class="fa fa-spinner fa-spin fa-pulse fa-2x fa-fw"></i></span> Waiting for mayaonline agents to connect</p> 
+</div>

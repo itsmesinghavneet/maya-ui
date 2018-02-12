@@ -1,0 +1,50 @@
+<div class="p-4 b-d">
+    <div class="container b-d">
+        <h1 class="outlet_title">{{t 'generic.edit'}} {{t 'generic.cluster' singularity=1}}</h1>
+        <div class="row b-d">
+            <div class="col-md-7 b-d p-3">
+                <div class="b-d">
+                    <div class="form-group">
+                        <label class="acc-label">{{t 'editCluster.name.label'}}</label> {{input type="text" value=model.cluster.name classNames="form-control"}}
+                    </div>
+                    <p class="text-warning" id="notifyCluster"></p>
+                    <div class="form-group">
+                        <label class="acc-label">{{t 'editCluster.description.label'}}</label> {{textarea value=model.cluster.description classNames="form-control no-resize" rows="5" placeholder=""}} 
+                    </div>
+                </div>
+                <div>
+                    {{#if editCatalog}} {{else if viewCatalog}}
+                    <div class="text-small">
+                        <a role="button" class="btn bg-transparent p-0" {{action 'cancelAddSystem'}}>{{t 'editCluster.systemStacks.cancel'}}</a>
+                    </div>
+                    {{else}}
+                    <div class="pt-2">
+                        {{new-edit-cluster editing=true cluster=model.cluster cancel=(action 'cancel') }}
+                    </div>
+                    {{/if}} 
+                </div>
+            </div>
+            <div class="col-md-5 b-d p-3">
+                <div class="b-d">
+                    <label class="pb-3">{{t 'clusterDashboard.cluster.edit.providerPicture'}}</label>
+                    <div class="cluster-provider-{{model.cluster.provider}}" style="height:45px"></div>
+                    <div class="pt-2">
+                        <div class="pt-4">
+                            <button class="btn btn-outline-secondary btn-sm" id="provider-change-btn" {{action 'showproviderlist'}}>{{t 'clusterDashboard.cluster.edit.changePicture'}}</button>
+                        </div>
+                    </div>
+                    <div class="pt-2 d-none" id="provider-select">
+                        <span>{{t 'clusterDashboard.cluster.edit.pictureChooseLabel'}}</span>
+                        <select style="border:none;" onchange={{action "setSelection" value="target.value" }}>
+                    <option disabled selected>{{model.cluster.provider}}</option>
+                    <option value="aws">{{t 'clusterDashboard.cluster.edit.providerPictureAws'}}</option>
+                    <option value="azure">{{t 'clusterDashboard.cluster.edit.providerPictureAzure'}}</option>
+                    <option value="google">{{t 'clusterDashboard.cluster.edit.providerPictureGoogle'}}</option>
+                    <option value="do">{{t 'clusterDashboard.cluster.edit.providerPictureDo'}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+{{#if (eq model.slackintegration.state 'active')}}
+<div class="pt-4 ">
+  <h2 class="outlet_title text-secondary">{{model.slackintegration.name}} Slack card added</h2>
+  <div class="d-flex align-items-center card-body mb-5" style="padding:0.6rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem;border-left:5px solid #2ea664; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+    <i class="fa fa-check-circle-o" aria-hidden="true" style="color:#2ea664;font-size:25px;"></i>
+    <p style="margin-bottom:0;padding-left:1%">A slack card with a name
+      <span class="font-weight-bold">{{model.slackintegration.name}}</span> has been created for your organization</p>
+  </div>
+  <div class="container">
+    <div class="row card-body align-items-center mt-2 mb-2" style="padding:0.8rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+      <div class="col-md-6">
+        <h5 style="color:#0576b9">Slack card:
+          <span class="font-weight-bold"> {{model.slackintegration.name}} Slack Card </span>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </h5>
+        <p style="margin-bottom:0;">Default alerts and notifications from
+          <span class="font-weight-bold">{{model.organization.name}}</span> organization will be notified at
+          <span class="font-weight-bold">{{model.slackintegration.token.incomingWebhook.channel}}</span> channel on
+          <span class="font-weight-bold">{{model.slackintegration.token.teamName}}</span> slack work space.</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <div class="btn-group-vertical ">
+          <button type="button" class="btn mt-2 mb-2 text-white" style="background-color:#fc0;cursor: pointer;">Edit the slack card config</button>
+          <button type="button" class="btn  mt-2 mb-2 text-white" style="background-color:#2ea664;cursor: pointer;">I am good with my slack card</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}} {{#if error}}
+<div class="pt-4 ">
+  <h2 class="outlet_title text-secondary">Default Slack card could not be created</h2>
+  <div class="d-flex align-items-center card-body mb-5" style="padding:0.6rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem;border-left:5px solid #d72b3f ; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+    <i class="fa fa-exclamation-circle" aria-hidden="true" style="font-size:30px;color:#d72b3f"></i>
+    <p style="margin-bottom:0;padding-left:1%">Something went wrong. We could not create the default slack card for you. Sorry !</p>
+  </div>
+  <div class="container">
+    <div class="row card-body align-items-center mt-2 mb-2" style="padding:0.8rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+      <div class="col-md-6">
+        <h3 class="text-danger">Error details
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+        </h3>
+        <p style="margin-bottom:0;">not available Please report this error using the feedback button on the right side of this page
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <div class="btn-group-vertical ">
+          <button type="button" class="btn mt-2 mb-2 text-white bd-r-3" style="background-color:#d72b3f;cursor: pointer; ">Try again</button>
+          <button type="button" class="btn mt-2 mb-2 text-white bd-r-3" style="background-color:#2ea664;cursor: pointer;">I will try later</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}

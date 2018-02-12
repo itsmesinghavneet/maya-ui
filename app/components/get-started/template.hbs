@@ -1,0 +1,34 @@
+<!-- <div class="card">
+<div class="card-body text-center p-5">
+<img src="assets/images/cluster/clusters.png" class="img-fluid">
+    <p style="color:#495057; font-size:18px;" class="pt-4 pb-4">You haven't imported any cluster yet!</p>
+    <button class="btn btn-primary btn-lg" {{action "importCluster"}}>Import cluster</button>
+    </div>
+</div> -->
+
+<div class="pt-5 d-flex align-items-center mb-4">
+    <img src="assets/images/explore.png" alt="slack" style="height:50px;">
+    <h3 class="pl-2 mb-0" style="color:#0576b9">{{t 'generic.cluster' singularity=1}}</h3>
+</div>
+<div class="d-flex align-items-center card-body mb-5" style="padding:0.8rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem;border-left:5px solid #717274; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+  <i class="fa fa-exclamation-circle" aria-hidden="true" style="color:#717274;font-size:25px;"></i>
+  <p style="margin-bottom:0;padding-left:1%">No cluster cards found. You can start by creating a new cluster card !!</p>
+</div>
+
+<div class="container">
+  <div class="row card-body align-items-center mt-2 mb-2" style="padding:0.8rem;border:1px solid rgba(0, 0, 0, 0.125); border-radius:0.25rem; background-color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.25);">
+    <div class="col-md-6 d-flex justify-content-center">
+      <h4 style="color:#0576b9">You have to first create a cluster card and then choose the type of cluster you want to import into the cluster card.
+      </h4>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+      <div class="btn-group-vertical bd-r-3">
+         <button type="button" class="btn mt-2 mb-2 text-white bd-r-3" style="background-color:#29A867;cursor: pointer; " {{action "importCluster"}}>Yes, start the import process</button>
+       <a href="https://docs.mayaonline.io/" class="w-100"target="_blank"> <button type="button" class="btn mt-2 mb-2 text-white bd-r-3" style="background-color:#717274;cursor: pointer;">No, take me to the docs</button></a>
+      </div>
+    </div>
+    <div class="col-md-12 mt-5 d-flex justify-content-center">
+      <img src="assets/images/openebsenabledk8s.png" alt="slack-config">
+    </div>
+  </div>
+</div>

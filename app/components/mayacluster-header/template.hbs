@@ -1,0 +1,48 @@
+{{#each model as |organization|}}
+<div class="container-fulid b-d " style="background-color:#474240; ">
+    <div class="row">
+        <div class="col-md-12 p-4">
+            <span style="color:#fff;" class="pt-2 pb-2"> Organization: <span style="font-weight:bold;">{{organization.name}}</span></span>
+        </div>
+    </div>
+    <div class="row b-d p-4">
+
+        <div class="col-md-2">
+            <div class="integration-item cluster-details-wrapper">
+                {{maya-prometheus model=organization}}
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="integration-item cluster-details-wrapper">
+                {{maya-grafana model=organization}}
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="integration-item cluster-details-wrapper">
+                {{maya-alertmanager model=organization}}
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="integration-item cluster-details-wrapper">
+                    {{#link-to 'mayasecure.organizations'}}
+                       <div class="text-center">
+                        <img src="{{rootURL}}assets/images/slack-logo.png" style="width:50px; height:auto;">
+                        <p style="color:#555;" class="pt-2">Slack integrations</p>
+                    </div>
+                    {{/link-to}}
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="integration-item cluster-details-wrapper" style="height:100%;">
+                <a href="#" target="_blank">
+                    <div class="text-center">
+                                           <p style="color:#555;" class="pt-2"></p>
+
+                        <img src="{{rootURL}}assets/images/next.png" style="width:50px; height:auto;">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}} {{yield}}

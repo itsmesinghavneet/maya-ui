@@ -1,0 +1,11 @@
+{{#each model.data.pods as |pod|}}
+	{{#each pod.volumes as |vol|}}
+		{{#if (eq vol.name volumename)}}
+			<div class="card mt-5">
+				<div class="card-body">
+					{{maya-volume-details model=vol volumename=volumename}}
+				</div>
+			</div>
+		{{/if}}
+	{{/each}}
+{{/each}}
