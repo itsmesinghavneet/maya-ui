@@ -1,5 +1,5 @@
 
-def ORG = "mayadataio"
+def ORG = "avneetsingh"
 def REPO = "maya-ui"
 def DOCKER_HUB_REPO = "https://index.docker.io/v1/"
 def DOCKER_IMAGE = ""
@@ -106,7 +106,7 @@ https://wiki.jenkins.io/display/JENKINS/Copy+Artifact+Plugin#CopyArtifactPlugin-
 	      }
   }
 
-    post {
+  /*  post {
         always {
             echo 'This will always run'
             //deleteDir()
@@ -123,7 +123,7 @@ https://wiki.jenkins.io/display/JENKINS/Copy+Artifact+Plugin#CopyArtifactPlugin-
             slackSend channel: '#maya-io',
                 color: 'RED',
                 message: "The pipeline ${currentBuild.fullDisplayName} failed. :scream_cat: :japanese_goblin: "
-        }
+        }*/
         unstable {
             echo 'This will run only if the run was marked as unstable'
 /*            slackSend channel: '#maya-io',
